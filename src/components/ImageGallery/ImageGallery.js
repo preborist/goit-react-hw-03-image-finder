@@ -72,7 +72,13 @@ class ImageGallery extends Component {
   }
 
   render() {
-    const { images, isLoading, error, showModal } = this.state;
+    const {
+      images,
+      isLoading,
+      error,
+      showModal,
+      currentLargeImageURL,
+    } = this.state;
     const shouldRenderLoadMoreButton = images.length > 0 && !isLoading;
 
     return (
@@ -80,7 +86,7 @@ class ImageGallery extends Component {
         {showModal && (
           <Modal
             onClose={this.toggleModal}
-            largeImageURL={this.state.currentLargeImageURL}
+            largeImageURL={currentLargeImageURL}
           />
         )}
         <Searchbar onSubmit={this.onChangeQuery} />
